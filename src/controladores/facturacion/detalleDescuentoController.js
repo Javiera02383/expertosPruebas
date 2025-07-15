@@ -41,7 +41,7 @@ exports.crearDetalleDescuento = async (req, res) => {
     res.status(201).json({ mensaje: 'Descuento agregado a factura', detalle });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ mensaje: 'Error al crear detalle de descuento', error: error.message });
+    res.status(500).json({ mensaje: 'Error al crear detalle del descuento', error: error.message });
   }
 };
 
