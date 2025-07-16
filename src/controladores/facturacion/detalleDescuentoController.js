@@ -33,7 +33,8 @@ exports.manejarErrores = (req, res, next) => {
 };
 
 
-// CONTROLADOR PARA DETALLES DE DESCUENTO
+// CONTROLADOR 
+
 // Crear relación de descuento
 exports.crearDetalleDescuento = async (req, res) => {
   try {
