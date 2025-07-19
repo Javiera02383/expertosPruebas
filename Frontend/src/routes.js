@@ -27,6 +27,9 @@ import RegistrarPago from "views/facturacion/RegistrarPago";
 import CAI from "views/facturacion/Cai";
 import Contratos from "views/facturacion/Contratos";
 import Canjes from "views/facturacion/Canjes";
+// Facturación - Crear Factura
+import CrearFacturaNueva from "views/facturacion/CrearFacturaNueva";
+import ListaFacturas from "views/facturacion/ListasFacturas.js";
 
 // Programación
 import Programacion from "views/programacion/programacion";
@@ -37,6 +40,21 @@ import CrearPauta from "views/programacion/CrearPauta.js";
 import Clientes from "views/examples/Clientes.js";
 
 const routes = [
+
+  {  
+    path: "/crear-factura-nueva",  
+    name: "Nueva Factura",  
+    icon: "ni ni-fat-add text-green",  
+    component: CrearFacturaNueva,  
+    layout: "/admin",  
+  },
+  {  
+    path: "/facturas",  
+    name: "Facturas",  
+    icon: "ni ni-single-copy-04 text-pink",  
+    component: ListaFacturas,  
+    layout: "/admin",  
+  },  
   // Dashboard
   {
     path: "/index",

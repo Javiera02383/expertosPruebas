@@ -191,7 +191,7 @@ exports.crearFacturaCompleta = async (req, res) => {
     const cliente = await Cliente.findByPk(nuevaFactura.idCliente, {  
       include: [{  
         model: Persona,  
-        as: 'persona'  
+        as: 'Persona'  
       }]  
     });  
   
@@ -199,6 +199,7 @@ exports.crearFacturaCompleta = async (req, res) => {
     const empleado = await Empleado.findByPk(nuevaFactura.idEmpleado, {  
       include: [{  
         model: Persona,  
+        as: 'Persona',
         foreignKey: 'idPersona'  
       }]  
     });  
@@ -207,7 +208,9 @@ exports.crearFacturaCompleta = async (req, res) => {
     const ProductoModel = require('../../modelos/productos/ProductoModel');  
     const detallesConProductos = await Promise.all(  
       detalles.map(async (detalle) => {  
-        const producto = await ProductoModel.findByPk(detalle.idProducto);  
+          const producto = await ProductoModel.findByPk(detalle.idProducto, {  
+            attributes: ['idProducto', 'Nombre', 'precioVenta', 'impuesto', 'marca', 'precioCosto']  
+          }); 
         return {  
           ...detalle,  
           producto: producto  
