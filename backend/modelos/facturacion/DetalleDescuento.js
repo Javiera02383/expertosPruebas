@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 const db = require('../../configuraciones/db');
 
-const Factura = require('../facturacion/Factura');
-const Descuento = require('../facturacion/Descuento');
+const Factura = require('./Factura');
+const Descuento = require('./Descuento');
 
 const DetalleDescuento = db.define('DetalleDescuento', {
   idFactura: {

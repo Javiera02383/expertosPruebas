@@ -41,20 +41,7 @@ import Clientes from "views/examples/Clientes.js";
 
 const routes = [
 
-  {  
-    path: "/crear-factura-nueva",  
-    name: "Nueva Factura",  
-    icon: "ni ni-fat-add text-green",  
-    component: CrearFacturaNueva,  
-    layout: "/admin",  
-  },
-  {  
-    path: "/facturas",  
-    name: "Facturas",  
-    icon: "ni ni-single-copy-04 text-pink",  
-    component: ListaFacturas,  
-    layout: "/admin",  
-  },  
+ 
   // Dashboard
   {
     path: "/index",
@@ -131,6 +118,20 @@ const routes = [
     component: PanelFacturacion,
     layout: "/admin",
   },
+  {  
+    path: "/crear-factura-nueva",  
+    name: "Nueva Factura",  
+    icon: "ni ni-fat-add text-green",  
+    component: CrearFacturaNueva,  
+    layout: "/admin",  
+  },
+  {  
+    path: "/facturas",  
+    name: "Facturas",  
+    icon: "ni ni-single-copy-04 text-pink",  
+    component: ListaFacturas,  
+    layout: "/admin",  
+  }, 
   {
     path: "/facturacion/crear",
     name: "Crear Factura",
@@ -193,7 +194,8 @@ const routes = [
     name: "Programación",
     icon: "ni ni-calendar-grid-58 text-primary",
     component: Programacion,
-    layout: "/admin",
+    layout: "/admin"
+    
   },
   {
     path: "/crear-programa",

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const db = require('../../configuraciones/db');
-const Persona = require('../../modelos/seguridad/Persona');
+const Persona = require('../seguridad/Persona');
 
 const Empleado = db.define('Empleado', {
   idEmpleado: {
@@ -11,7 +11,10 @@ const Empleado = db.define('Empleado', {
   idPersona: {
     type: DataTypes.INTEGER,
     allowNull: false,
-
+    references: {
+      model: 'persona',
+      key: 'idPersona'
+    }
   },
   Fecha_Registro: {
     type: DataTypes.DATE,
@@ -24,6 +27,6 @@ const Empleado = db.define('Empleado', {
 });
 
 // Relaciones
-Empleado.belongsTo(Persona, { foreignKey: 'idPersona', as: 'Persona' });
+Empleado.belongsTo(Persona, { foreignKey: 'idPersona', as: 'persona' });
 Persona.hasOne(Empleado,{foreignKey: "idPersona", sourceKey:"idPersona"})
 module.exports = Empleado;
