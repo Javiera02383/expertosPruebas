@@ -1,14 +1,14 @@
 
-// Clientes
+// Gestion Clientes
 import Clientes from "views/gestion_cliente/Clientes.js";
 
 import Index from "views/Index.js";
-import Profile from "views/gestion_cliente/Profile.js";
-import Maps from "views/gestion_cliente/Maps.js";
-import Register from "views/gestion_cliente/Register.js";
-import Login from "views/gestion_cliente/Login.js";
-
-
+// seguridad
+import Profile from "views/seguridad/Profile.js";
+import Register from "views/seguridad/Register.js";
+import Login from "views/seguridad/Login.js";
+// Mapa
+import Maps from "views/examples/Maps.js";
 
 // Facturación
 import PanelFacturacion from "views/facturacion/PanelFacturacion";
@@ -22,6 +22,26 @@ import Canjes from "views/facturacion/Canjes";
 // Facturación - Crear Factura
 import CrearFacturaNueva from "views/facturacion/CrearFacturaNueva";
 import ListaFacturas from "views/facturacion/ListasFacturas.js";
+
+
+// Reportes
+import Reporte from "views/examples/Reporte.js";
+import VerDetalle from "views/examples/VerDetalle.js";
+import HistoricoReportes from "views/examples/HistoricoReportes.js";
+
+// Inventario
+import ListaActivos from "views/examples/ListaActivos.js";
+import RegistrarActivo from "views/examples/RegistrarActivo.js";
+import GestionarStock from "views/examples/GestionarStock.js";
+import GestionarMantenimiento from "views/examples/GestionarMantenimiento.js";
+import GenerarReportes from "views/examples/GenerarReportes.js";
+import InventarioHub from "views/examples/InventarioHub.js";
+
+// Programación
+import Programacion from "views/programacion/programacion";
+import CrearPrograma from "views/programacion/CrearPrograma.js";
+import CrearPauta from "views/programacion/CrearPauta.js";
+
 
 
 
@@ -46,6 +66,56 @@ const routes = [
   layout: "/admin"
   },
 
+
+  // Inventario
+  {
+    path: "/panel-inventario",
+    name: "Inventario",
+    icon: "ni ni-archive-2 text-blue",
+    component: InventarioHub,
+    layout: "/admin",
+  },
+  {
+    path: "/lista-activos",
+    name: "Inventario General",
+    icon: "ni ni-box-2 text-primary",
+    component: ListaActivos,
+    layout: "/admin",
+    hidden: true,
+  },
+  {
+    path: "/registrar-activo",
+    name: "Registrar Activo",
+    icon: "ni ni-fat-add text-success",
+    component: RegistrarActivo,
+    layout: "/admin",
+    hidden: true,
+  },
+  {
+    path: "/gestionar-stock",
+    name: "Gestionar Stock",
+    icon: "ni ni-chart-bar-32 text-info",
+    component: GestionarStock,
+    layout: "/admin",
+    hidden: true,
+  },
+  {
+    path: "/gestionar-mantenimiento",
+    name: "Controlar Mantenimiento",
+    icon: "ni ni-settings-gear-65 text-primary",
+    component: GestionarMantenimiento,
+    layout: "/admin",
+    hidden: true,
+  },
+  {
+    path: "/generar-reportes",
+    name: "Generar Reportes",
+    icon: "ni ni-book-bookmark text-green",
+    component: GenerarReportes,
+    layout: "/admin",
+    hidden: true,
+  },
+
   
   // Facturación
   {
@@ -55,6 +125,20 @@ const routes = [
     component: PanelFacturacion,
     layout: "/admin",
   },
+  {  
+    path: "/crear-factura-nueva",  
+    name: "Nueva Factura",  
+    icon: "ni ni-fat-add text-green",  
+    component: CrearFacturaNueva,  
+    layout: "/admin",  
+  },
+  {  
+    path: "/facturas",  
+    name: "Facturas",  
+    icon: "ni ni-single-copy-04 text-pink",  
+    component: ListaFacturas,  
+    layout: "/admin",  
+  }, 
   {
     path: "/facturacion/crear",
     name: "Crear Factura",
@@ -111,6 +195,56 @@ const routes = [
     layout: "/admin",
     hidden: true,
   },
+// Programación
+  {
+    path: "/programacion",
+    name: "Programación",
+    icon: "ni ni-calendar-grid-58 text-primary",
+    component: Programacion,
+    layout: "/admin",
+  },
+  {
+    path: "/crear-programa",
+    name: "Crear Programa",
+    icon: "ni ni-fat-add text-primary",
+    component: CrearPrograma,
+    layout: "/admin",
+    hidden: true,
+  },
+  {
+    path: "/crear-pauta",
+    name: "Crear Pauta Publicitaria",
+    icon: "ni ni-bullet-list-67 text-green",
+    component: CrearPauta,
+    layout: "/admin",
+    hidden: true,
+  },
+
+// Reportes
+ {
+    path: "/reporte",
+    name: "Reportes",
+    icon: "ni ni-archive-2 text-primary",
+    component: Reporte,
+    layout: "/admin",
+  },
+  {
+    path: "/detalle/:id",
+    name: "Detalle de Reporte",
+    icon: "ni ni-bullet-list-67 text-info",
+    component: VerDetalle ,
+    layout: "/admin",
+    hidden: true, // Oculto del sidebar
+  },
+  {
+    path: "/historico",
+    name: "Histórico de Reportes",
+    icon: "ni ni-archive-2 text-warning",
+    component: HistoricoReportes ,
+    layout: "/admin",
+    hidden: true,
+  },
+
   // Perfil de Usuario
     {
     path: "/user-profile",
