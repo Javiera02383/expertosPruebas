@@ -1,11 +1,14 @@
+// app.js backend
+
 const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const passport = require('passport');
+const cors = require('cors');
 const db = require('./configuraciones/db');
 
 const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./configuraciones/swagger'); // ajusta según tu ruta
+const swaggerSpec = require('./configuraciones/swagger'); 
 
 // Cargar variables de entorno
 dotenv.config();
@@ -13,14 +16,24 @@ dotenv.config();
 // Inicializar la app
 const app = express();
 
-// Middlewares
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
+// Middlewaress
 app.use(morgan('dev'));
 app.use(express.json());
-
-
-// Middleware para validar factura
-
 app.use(passport.initialize());
+
+/* ========== RUTAS ========== */
 
 /* ========== RUTAS DE SEGURIDAD ========== */
 const authRoutes = require('./rutas/seguridad/authRoutes');

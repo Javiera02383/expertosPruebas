@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../../configuraciones/db');
 
-const Factura = require('./Factura');
+const Factura = require('../facturacion/Factura');
 const ProductoAtributo = require('../productos/ProductoAtributo');
 const Consulta = require('../gestion_cliente/Consulta');
 
