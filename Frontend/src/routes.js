@@ -55,20 +55,6 @@ const routes = [
     component: PanelFacturacion,
     layout: "/admin",
   },
-  {  
-    path: "/crear-factura-nueva",  
-    name: "Nueva Factura",  
-    icon: "ni ni-fat-add text-green",  
-    component: CrearFacturaNueva,  
-    layout: "/admin",  
-  },
-  {  
-    path: "/facturas",  
-    name: "Facturas",  
-    icon: "ni ni-single-copy-04 text-pink",  
-    component: ListaFacturas,  
-    layout: "/admin",  
-  }, 
   {
     path: "/facturacion/crear",
     name: "Crear Factura",
